@@ -5,7 +5,7 @@ import MemeIndex from "../pages/MemeIndex.jsx"
 const Memes = (props) => {
     const [memes, setMemes] = useState(null)
   
-    const URL = `${props.baseBackendURL}memes/`
+    const URL = `${props.baseBackendURL}memes`
     console.log(`Memes connecting to backend on ${URL}`)
   
     const getMemes = async () => {

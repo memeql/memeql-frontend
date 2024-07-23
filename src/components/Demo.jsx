@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 const Demo = (props) => {
     console.log('hello from demo')
     const [demo, setDemo] = useState(null)
-    const URL = `${props.baseBackendURL}demo/`
+    const URL = `${props.baseBackendURL}demo`
     console.log(`Demo connecting to backend on ${URL}`)
 
     const getDemo = async () => {
