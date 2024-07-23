@@ -8,10 +8,10 @@ function App() {
        switch (window.location.origin) {
         case "https://memeql.com":
           console.log("Running in the production environment")
-          return ("https://backend-memeql-prod.azurewebsites.net/")
+          return ("https://backend.prod.memeql.com/")
         case "https://dev.memeql.com":
           console.log("Running in the development environment")
-          return ("https://backend-memeql-dev.azurewebsites.net/")
+          return ("https://backend.dev.memeql.com/")
         default: 
           console.log("Running in the local environment")
           return("http://localhost:4000/")
