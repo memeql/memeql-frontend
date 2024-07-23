@@ -8,14 +8,14 @@ const Memes = (props) => {
     const URL = `${props.baseBackendURL}memes/`
     console.log(`Memes connecting to backend on ${URL}`)
   
-    const getMemes = async () => {
+    const getMemes = async (URL) => {
       const reponse = await fetch(URL)
       const data = await reponse.json()
       setMemes(data.data)
     }
   
     useEffect(() => {
-        getMemes()
+        getMemes(URL)
     }, [])
   
     return (
