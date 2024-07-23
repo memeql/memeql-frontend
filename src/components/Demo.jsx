@@ -5,7 +5,7 @@ const Demo = (props) => {
     console.log('hello from demo')
     const [demo, setDemo] = useState(null)
     
-    const getDemo = async () => {
+    const getDemo = async (props) => {
         const URL = `${props.baseBackendURL}demo/`
         console.log(`Demo connecting to backend on ${URL}`)
         const response = await fetch(URL)
@@ -16,7 +16,7 @@ const Demo = (props) => {
 
     useEffect(() => {
         console.log('hello from demo useEffect')
-        getDemo()
+        getDemo(props)
     }, [])
 
     return (

@@ -5,7 +5,7 @@ import MemeIndex from "../pages/MemeIndex.jsx"
 const Memes = (props) => {
     const [memes, setMemes] = useState(null)
   
-    const getMemes = async () => {
+    const getMemes = async (props) => {
         const URL = `${props.baseBackendURL}memes/`
         console.log(`Memes connecting to backend on ${URL}`)
         const reponse = await fetch(URL)
@@ -14,7 +14,7 @@ const Memes = (props) => {
     }
   
     useEffect(() => {
-        getMemes()
+        getMemes(props)
     }, [])
   
     return (
