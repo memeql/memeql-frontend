@@ -11,11 +11,11 @@ function App() {
        switch (window.location.origin) {
         case "https://memeql.com":
           console.log("Running in the production environment")
-          setBaseBackendUrl("https://backend.prod.memeql.com/")
+          setBaseBackendUrl("https://backend-memeql-prod.azurewebsites.net/")
           break
         case "https://dev.memeql.com":
           console.log("Running in the development environment")
-          setBaseBackendUrl("https://backend.dev.memeql.com/")
+          setBaseBackendUrl("https://backend-memeql-dev.azurewebsites.net/")
           break
         default: 
           console.log("Running in the local environment")
