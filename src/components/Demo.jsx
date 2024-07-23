@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-const Demo = () => {
+const Demo = (props) => {
     console.log('hello from demo')
     const [demo, setDemo] = useState(null)
-    const URL = `https://backend-memeql-prod.azurewebsites.net/demo`
-
-    const getDemo = async () => {
+    
+    const getDemo = async (props) => {
+        const URL = `${props.baseBackendURL}demo/`
+        console.log(`Demo connecting to backend on ${URL}`)
         const response = await fetch(URL)
         const data = await response.json()
         console.log(data)
@@ -15,7 +16,7 @@ const Demo = () => {
 
     useEffect(() => {
         console.log('hello from demo useEffect')
-        getDemo()
+        getDemo(props)
     }, [])
 
     return (
