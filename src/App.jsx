@@ -17,13 +17,15 @@ function App() {
           return("http://localhost:4000/")
        }
   }
+
+  const baseBackendURL = getBaseBackendURL()
   
   return (
     <>
       <div className='Demo'>
-        <Demo baseBackendURL = {getBaseBackendURL()}/>
+        <Demo baseBackendURL = {baseBackendURL}/>
       </div>
-      <Memes baseBackendURL = {getBaseBackendURL()}/>
+      <Memes baseBackendURL = {baseBackendURL}/>
     </>
   )
 }
