@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   
-  const [baseBackendURL, setBaseBackendUrl] = useState(null)
+  const [baseBackendURL, setBaseBackendUrl] = useState('')
 
   const getBaseBackendURL = () => {
        switch (window.location.origin) {
