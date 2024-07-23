@@ -2,12 +2,12 @@ import { useEffect, useState } from "react"
 import { Route, Routes } from 'react-router-dom'
 import MemeIndex from "../pages/MemeIndex.jsx"
 
-const Memes = () => {
+const Memes = (props) => {
     const [memes, setMemes] = useState(null)
   
-    const URL = 'http://localhost:4000/memes/'
+    const URL = `${props.baseBackendURL}memes/`
+    console.log(`Memes connecting to backend on ${URL}`)
   
-    //fetches all people from our API backend
     const getMemes = async () => {
       const reponse = await fetch(URL)
       const data = await reponse.json()
