@@ -1,6 +1,8 @@
 import Demo from './components/Demo.jsx'
 import Memes from './components/Memes.jsx'
+import Login from './components/Login.jsx'
 import './App.css'
+import { useState } from "react";
 
 function App() {
 
@@ -19,13 +21,28 @@ function App() {
   }
 
   const baseBackendURL = getBaseBackendURL()
+
+  const [userData, setUserData] = useState(null)
+  const loginUser = async (loginData) => {
+    const request = await fetch (`${baseBackendURL}auth/login`, {
+        method: "POST",
+        credentials: 'include',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(loginData),
+    })
+    const requestData = await request.json()
+    setUserData(requestData)
+  }
   
   return (
     <>
       <div className='Demo'>
-        <Demo baseBackendURL = {baseBackendURL}/>
+        <Demo baseBackendURL = {baseBackendURL} userData = {userData}/>
       </div>
-      <Memes baseBackendURL = {baseBackendURL}/>
+      <Login loginUser = {loginUser}/>
+      <Memes baseBackendURL = {baseBackendURL} userData = {userData}/>
     </>
   )
 }
