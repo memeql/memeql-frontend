@@ -1,5 +1,6 @@
 import Demo from './components/Demo.jsx'
 import Memes from './components/Memes.jsx'
+import Login from './components/Login.jsx'
 import './App.css'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <div className='Demo'>
         <Demo baseBackendURL = {baseBackendURL}/>
       </div>
+      <Login baseBackendURL = {baseBackendURL}/>
       <Memes baseBackendURL = {baseBackendURL}/>
     </>
   )
