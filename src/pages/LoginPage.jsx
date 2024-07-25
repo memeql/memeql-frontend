@@ -3,17 +3,17 @@ import { useState } from "react";
 const LoginPage = (props) => {
 
     const [loginData, setLoginData] = useState({
-        email: null,
-        password: null
+        email: '',
+        password: ''
     })
 
     const handleChange = (event) => {
         setLoginData({ ...loginData, [event.target.name]: event.target.value })
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
-        props.loginUser(loginData)
+        await props.loginUser(loginData)
         setLoginData({
             email: "",
             password: ""
