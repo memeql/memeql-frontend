@@ -8,7 +8,10 @@ const Memes = (props) => {
     const getMemes = async (props) => {
         const URL = `${props.baseBackendURL}memes/`
         console.log(`Memes connecting to backend on ${URL}`)
-        const reponse = await fetch(URL)
+        const reponse = await fetch(URL, {
+            method: "GET",
+            credentials: 'include'
+        })
         const data = await reponse.json()
         setMemes(data.data)
     }
