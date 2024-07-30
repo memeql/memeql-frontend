@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = (props) => {
+
+    const navigate = useNavigate();
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -18,6 +21,7 @@ const LoginPage = (props) => {
             email: "",
             password: ""
         })
+        navigate('/memes');
     }
     return (
         <div className="login form">
