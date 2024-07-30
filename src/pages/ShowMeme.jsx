@@ -35,7 +35,9 @@ const ShowMeme = (props) => {
         </div>
     ))
 
-    const [newComment, setNewComment] = useState("")
+    const [newComment, setNewComment] = useState({
+        comment_text: ''
+    })
     
     const handleCommentChange = (event) => {
         setNewComment({...newComment, [event.target.name]: event.target.value})
@@ -44,7 +46,9 @@ const ShowMeme = (props) => {
     const handleCommentSubmit = (event) => {
         event.preventDefault()
         props.createComment(newComment, meme._id)
-        setNewComment("")
+        setNewComment({
+            comment_text: ''
+        })
     }
 
     return (
