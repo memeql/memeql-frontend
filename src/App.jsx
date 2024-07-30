@@ -3,7 +3,7 @@ import Memes from './components/Memes.jsx'
 import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
 import './App.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
 
@@ -45,6 +45,19 @@ function App() {
     })
     setUserData(null)
   }
+
+  const getCurrentUserData = async () => {
+    const request = await fetch (`${baseBackendURL}auth/`, {
+      method: "GET",
+      credentials: 'include',
+  })
+  const requestData = await request.json()
+  setUserData(requestData)
+  }
+
+  useEffect(() => {
+    getCurrentUserData()
+  }, [])
   
   return (
     <>

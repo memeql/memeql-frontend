@@ -4,8 +4,23 @@ import MemeIndex from "../pages/MemeIndex.jsx"
 
 const Memes = (props) => {
     const [memes, setMemes] = useState(null)
+    let [newMemeRefresh, setNewMemeRefresh] = useState(null) 
+
+    const createMeme = async(newMemeData) => {
+        const URL = `${props.baseBackendURL}memes/`
+        const response = await fetch(URL, {
+            method: "POST",
+            credentials: 'include',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newMemeData)
+        })
+        await response.json()
+        setNewMemeRefresh = true
+    }
   
-    const getMemes = async (props) => {
+    const getMemes = async () => {
         const URL = `${props.baseBackendURL}memes/`
         console.log(`Memes connecting to backend on ${URL}`)
         const response = await fetch(URL, {
@@ -17,15 +32,13 @@ const Memes = (props) => {
     }
   
     useEffect(() => {
-        getMemes(props)
-    }, [props.userData])
+        getMemes()
+    }, [props.userData, newMemeRefresh])
   
     return (
       <main>
           <Routes>
-              <Route path="/" element={<MemeIndex 
-                  memes={memes} 
-                  />}/>
+              <Route path="/" element={<MemeIndex memes={memes} createMeme={createMeme} userData={props.userData}/>}/>
           </Routes>
       </main>
     )
