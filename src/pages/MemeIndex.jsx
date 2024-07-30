@@ -8,7 +8,6 @@ function MemeIndex(props) {
         const [newMemeData, setNewMemeData] = useState({
             title: '',
             image: '',
-            owner_user_id: props.userData._id,
             description: '' 
         })
     
@@ -22,14 +21,12 @@ function MemeIndex(props) {
             setNewMemeData({
                 title: '',
                 image: '',
-                owner_user_id: props.userData._id,
                 description: '' 
             })
         }
 
-
         const memes = props.memes.map((meme) => (
-            <div key={meme._id} className="meme">
+            <div key={meme._id} className="meme_index">
             <Link to={`/memes/${meme._id}`}>
                 <h3>{meme.title}</h3>
             </Link>

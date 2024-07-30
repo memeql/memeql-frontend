@@ -30,7 +30,7 @@ const RegisterPage = (props) => {
 
     return (
         <div className="registration_form">
-            <h6>Login</h6>
+            <h6>Register for an account</h6>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="first_name" placeholder="first name" value={registerData.first_name} onChange={handleChange} />
                 <input type="text" name="last_name" placeholder="last name" value={registerData.last_name} onChange={handleChange} />
