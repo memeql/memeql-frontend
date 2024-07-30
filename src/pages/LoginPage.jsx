@@ -25,21 +25,29 @@ const LoginPage = (props) => {
         await props.logoutUser()
     }
 
-    return (
-        <div className="login_form">
-            <h6>Login</h6>
+    const login = () => {
+        return (
             <form onSubmit={handleLogin}>
                 <input type="email" name="email" placeholder="email" value={loginData.email} onChange={handleChange} />
                 <input type="password" name="password" placeholder="password" value={loginData.password} onChange={handleChange} />
                 <input type="submit" value="Login" />
             </form>
+        )
+    }
+    
+    const logout = () => {
+        return (
             <form onSubmit={handleLogout}>
-                <input type="submit" value="Logout"/>
+            <input type="submit" value="Logout"/>
             </form>
-
-        </div>
+        )
+    }
+    
+    return (
+        <section>
+            {props.userData ? logout() : login()}
+        </section>
     )
-
 }
 
 export default LoginPage

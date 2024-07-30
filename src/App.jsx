@@ -66,8 +66,7 @@ function App() {
       <div className='Demo'>
         <Demo baseBackendURL = {baseBackendURL} userData = {userData}/>
       </div>
-      <Header baseBackendURL = {baseBackendURL} />
-      <Login baseBackendURL = {baseBackendURL} loginUser = {loginUser} logoutUser = {logoutUser}/>
+      <Header baseBackendURL = {baseBackendURL} loginUser = {loginUser} logoutUser = {logoutUser} userData = {userData}/>
       <Memes baseBackendURL = {baseBackendURL} userData = {userData}/>
       <Routes>
               <Route path="/register" element={<Register baseBackendURL = {baseBackendURL} />}/>
