@@ -4,6 +4,8 @@ import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
 import './App.css'
 import { useEffect, useState } from "react";
+import Header from './components/Header.jsx'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
 
@@ -64,9 +66,12 @@ function App() {
       <div className='Demo'>
         <Demo baseBackendURL = {baseBackendURL} userData = {userData}/>
       </div>
+      <Header baseBackendURL = {baseBackendURL} />
       <Login baseBackendURL = {baseBackendURL} loginUser = {loginUser} logoutUser = {logoutUser}/>
-      <Register baseBackendURL = {baseBackendURL} />
       <Memes baseBackendURL = {baseBackendURL} userData = {userData}/>
+      <Routes>
+              <Route path="/register" element={<Register baseBackendURL = {baseBackendURL} />}/>
+      </Routes>
     </>
   )
 }
