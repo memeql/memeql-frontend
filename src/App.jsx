@@ -1,6 +1,7 @@
 import Demo from './components/Demo.jsx'
 import Memes from './components/Memes.jsx'
 import Login from './components/Login.jsx'
+import Register from './components/Register.jsx'
 import './App.css'
 import { useState } from "react";
 
@@ -35,13 +36,23 @@ function App() {
     const requestData = await request.json()
     setUserData(requestData)
   }
+
+  const logoutUser = async () => {
+    const URL = `${baseBackendURL}auth/logout`
+    await fetch(URL, {
+        method: "POST",
+        credentials: 'include'
+    })
+    setUserData(null)
+  }
   
   return (
     <>
       <div className='Demo'>
         <Demo baseBackendURL = {baseBackendURL} userData = {userData}/>
       </div>
-      <Login loginUser = {loginUser}/>
+      <Login baseBackendURL = {baseBackendURL} loginUser = {loginUser} logoutUser = {logoutUser}/>
+      <Register baseBackendURL = {baseBackendURL} />
       <Memes baseBackendURL = {baseBackendURL} userData = {userData}/>
     </>
   )
