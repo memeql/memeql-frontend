@@ -34,7 +34,12 @@ function App() {
         body: JSON.stringify(loginData),
     })
     const requestData = await request.json()
-    setUserData(requestData)
+    console.log(requestData)
+    if (requestData.message === "Login successful") {
+      setUserData(requestData)
+    } else {
+      setUserData(null)
+    } 
   }
 
   const logoutUser = async () => {
