@@ -57,7 +57,11 @@ function App() {
       credentials: 'include',
   })
   const requestData = await request.json()
-  setUserData(requestData)
+  if (requestData.message === "Returning user data") {
+    setUserData(requestData)
+  } else {
+    setUserData(null)
+  }
   }
 
   useEffect(() => {
