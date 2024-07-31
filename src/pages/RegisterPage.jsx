@@ -4,7 +4,9 @@ const RegisterPage = (props) => {
 
     const [registerData, setRegisterData] = useState({
         email: '',
-        password: ''
+        password: '',
+        first_name: "",
+        last_name: ""
     })
 
     const handleChange = (event) => {
@@ -24,7 +26,9 @@ const RegisterPage = (props) => {
         await request.json()
         setRegisterData({
             email: "",
-            password: ""
+            password: "",
+            first_name: "",
+            last_name: ""
         })
     }
 
