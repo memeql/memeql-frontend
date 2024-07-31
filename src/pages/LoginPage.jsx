@@ -27,10 +27,10 @@ const LoginPage = (props) => {
 
     const login = () => {
         return (
-                <form className="form-inline my-2 my-lg-0" onSubmit={handleLogin}>
-                    <input className="form-control mr-sm-2" type="email" name="email" placeholder="email" value={loginData.email} onChange={handleChange} />
-                    <input className="form-control mr-sm-2" type="password" name="password" placeholder="password" value={loginData.password} onChange={handleChange} />
-                    <input className="btn btn-outline-success my-2 my-sm-0" type="submit" value="Login" />
+                <form className="form-inline" onSubmit={handleLogin}>
+                        <input type="email" name="email" placeholder="email" value={loginData.email} onChange={handleChange} />
+                        <input type="password" name="password" placeholder="password" value={loginData.password} onChange={handleChange} />
+                        <input type="submit" value="Login" />
                 </form>
         )
     }
@@ -44,9 +44,9 @@ const LoginPage = (props) => {
     }
     
     return (
-        <section>
-            {props.userData ? logout() : login()}
-        </section>
+        <>
+        {props.userData ? logout() : login()}
+        </>
     )
 }
 

@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom"
-import Login from "./Login.jsx";
+import LoginPage from "../pages/LoginPage.jsx";
 
 const Header = (props) => {
-
-  
     return (
       <nav className='navbar navbar-expand-lg navbar-light bg-light'>
         <div className="collapse navbar-collapse">
@@ -18,10 +16,8 @@ const Header = (props) => {
                     <div>Sign Up</div>
                     </Link>
                 </li>
-                <li>
-                <Login baseBackendURL = {props.baseBackendURL} loginUser = {props.loginUser} logoutUser = {props.logoutUser} userData = {props.userData}/>
-                </li>
-            </ul> 
+            </ul>
+            <LoginPage baseBackendURL = {props.baseBackendURL} loginUser = {props.loginUser} logoutUser = {props.logoutUser} userData = {props.userData}/>
         </div>
     </nav>
   );
