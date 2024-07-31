@@ -1,8 +1,6 @@
 import Demo from './components/Demo.jsx'
 import Memes from './components/Memes.jsx'
-import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
-import './App.css'
 import { useEffect, useState } from "react";
 import Header from './components/Header.jsx'
 import { Route, Routes } from 'react-router-dom'

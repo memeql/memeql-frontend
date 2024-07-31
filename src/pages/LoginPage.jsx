@@ -27,17 +27,19 @@ const LoginPage = (props) => {
 
     const login = () => {
         return (
-            <form onSubmit={handleLogin}>
-                <input type="email" name="email" placeholder="email" value={loginData.email} onChange={handleChange} />
-                <input type="password" name="password" placeholder="password" value={loginData.password} onChange={handleChange} />
-                <input type="submit" value="Login" />
-            </form>
+            <div className="collapse navbar-collapse">
+                <form className="form-inline my-2 my-lg-0" onSubmit={handleLogin}>
+                    <input className="form-control mr-sm-2" type="email" name="email" placeholder="email" value={loginData.email} onChange={handleChange} />
+                    <input className="form-control mr-sm-2" type="password" name="password" placeholder="password" value={loginData.password} onChange={handleChange} />
+                    <input className="btn btn-outline-success my-2 my-sm-0" type="submit" value="Login" />
+                </form>
+            </div>
         )
     }
     
     const logout = () => {
         return (
-            <form onSubmit={handleLogout}>
+            <form className="form-inline" onSubmit={handleLogout}>
             <input type="submit" value="Logout"/>
             </form>
         )
