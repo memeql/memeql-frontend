@@ -53,20 +53,32 @@ const ShowMeme = (props) => {
 
     return (
     <div className="meme_show">
-        <h1>{meme.title}</h1>
-        <img src={meme.image} alt={meme.title} />
-        <button id="delete_meme" onClick={removeMeme}>Delete</button>
-        <form onSubmit={handleMemeSubmit}>
-            <input type="text" name="title" value={editMemeForm.title} onChange={handleMemeChange} />
-            <input type="text" name="description" value={editMemeForm.description} onChange={handleMemeChange} />
-            <input type="submit" value="Update Meme" />
-        </form>
-        <div className="comments">
-            {commentsShow}
-            <form onSubmit={handleCommentSubmit}>
-                <input type="text" name="comment_text" value={newComment.comment_text} onChange={handleCommentChange} />
-                <input type="submit" value="Add Comment" />
-            </form>
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <form onSubmit={handleMemeSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="title">Title</label>
+                            <input className="form-control" type="text" name="title" id="title" value={editMemeForm.title} onChange={handleMemeChange} />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="description">Description</label>
+                            <input className="form-control" type="text" name="description" id="description" value={editMemeForm.description} onChange={handleMemeChange} />   
+                        </div>
+                        <input type="submit" value="Update Meme" />
+                    </form>
+                    <p><button id="delete_meme" onClick={removeMeme}>Delete Meme</button></p>
+                    <img src={meme.image} alt={meme.title} />
+                </div>
+                <div className="comments col">
+                    <h4>Comments</h4>
+                        {commentsShow}
+                        <form onSubmit={handleCommentSubmit}>
+                            <input type="text" name="comment_text" value={newComment.comment_text} onChange={handleCommentChange} />
+                            <input type="submit" value="Add Comment" />
+                        </form>
+                </div>
+            </div>
         </div>
     </div>
     )
