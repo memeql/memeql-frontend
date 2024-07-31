@@ -21,7 +21,7 @@ const Demo = (props) => {
     useEffect(() => {
         console.log('hello from demo useEffect')
         getDemo(props)
-    }, [])
+    }, [props.userData])
 
     return (
         <main>
