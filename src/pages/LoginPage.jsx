@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate} from "react-router-dom"
 
 const LoginPage = (props) => {
+    const navigate = useNavigate()
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -23,6 +25,7 @@ const LoginPage = (props) => {
     const handleLogout = async (event) => {
         event.preventDefault()
         await props.logoutUser()
+        navigate("/")
     }
 
     const login = () => {

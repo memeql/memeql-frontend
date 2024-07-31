@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useNavigate} from "react-router-dom"
 
 const RegisterPage = (props) => {
+    const navigate = useNavigate()
 
     const [registerData, setRegisterData] = useState({
         email: '',
-        password: ''
+        password: '',
+        first_name: "",
+        last_name: ""
     })
 
     const handleChange = (event) => {
@@ -24,13 +28,17 @@ const RegisterPage = (props) => {
         await request.json()
         setRegisterData({
             email: "",
-            password: ""
+            password: "",
+            first_name: "",
+            last_name: ""
         })
+        navigate("/")
     }
 
     return (
-        <div className="registration_form">
-            <h6>Register for an account</h6>
+        <div className="registration_form container">
+            <h4>Register for an account</h4>
+            <p>You will get an email after you click Register to confirm, please check bulk mail, Updates, or spam folders.</p>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="first_name" placeholder="first name" value={registerData.first_name} onChange={handleChange} />
                 <input type="text" name="last_name" placeholder="last name" value={registerData.last_name} onChange={handleChange} />
