@@ -1,8 +1,9 @@
 import Demo from './components/Demo.jsx'
 import Memes from './components/Memes.jsx'
-import Login from './components/Login.jsx'
-import './App.css'
-import { useState } from "react";
+import Register from './components/Register.jsx'
+import { useEffect, useState } from "react";
+import Header from './components/Header.jsx'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
 
@@ -33,16 +34,50 @@ function App() {
         body: JSON.stringify(loginData),
     })
     const requestData = await request.json()
-    setUserData(requestData)
+    console.log(requestData)
+    if (requestData.message === "Login successful") {
+      setUserData(requestData)
+    } else {
+      setUserData(null)
+    } 
   }
+
+  const logoutUser = async () => {
+    const URL = `${baseBackendURL}auth/logout`
+    await fetch(URL, {
+        method: "POST",
+        credentials: 'include'
+    })
+    setUserData(null)
+  }
+
+  const getCurrentUserData = async () => {
+    const request = await fetch (`${baseBackendURL}auth/`, {
+      method: "GET",
+      credentials: 'include',
+  })
+  const requestData = await request.json()
+  if (requestData.message === "Returning user data") {
+    setUserData(requestData)
+  } else {
+    setUserData(null)
+  }
+  }
+
+  useEffect(() => {
+    getCurrentUserData()
+  }, [])
   
   return (
     <>
       <div className='Demo'>
         <Demo baseBackendURL = {baseBackendURL} userData = {userData}/>
       </div>
-      <Login loginUser = {loginUser}/>
+      <Header baseBackendURL = {baseBackendURL} loginUser = {loginUser} logoutUser = {logoutUser} userData = {userData}/>
       <Memes baseBackendURL = {baseBackendURL} userData = {userData}/>
+      <Routes>
+              <Route path="/register" element={<Register baseBackendURL = {baseBackendURL} />}/>
+      </Routes>
     </>
   )
 }
