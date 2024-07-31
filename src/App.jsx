@@ -12,6 +12,9 @@ function App() {
         case "https://memeql.com":
           console.log("Running in the production environment")
           return ("https://backend.prod.memeql.com/")
+        case "https://memeql.konthecat.com":
+          console.log("Running in the production environment")
+          return ("https://backend.prod.memeql.com/")
         case "https://dev.memeql.com":
           console.log("Running in the development environment")
           return ("https://backend.dev.memeql.com/")
