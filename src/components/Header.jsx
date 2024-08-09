@@ -18,7 +18,7 @@ const Header = (props) => {
     
     return (
     <div className="container">
-        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+        <nav className='navbar navbar-light bg-light navbar-expand'>
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li className="nav-item">
