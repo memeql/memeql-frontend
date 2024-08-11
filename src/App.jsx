@@ -11,13 +11,16 @@ function App() {
        switch (window.location.origin) {
         case "https://memeql.com":
           console.log("Running in the production environment")
-          return ("https://backend.prod.memeql.com/")
+          return ("https://backend.prod.memeql.konthecat.com/")
         case "https://memeql.konthecat.com":
           console.log("Running in the production environment")
-          return ("https://backend.prod.memeql.com/")
+          return ("https://backend.prod.memeql.konthecat.com/")
         case "https://dev.memeql.com":
           console.log("Running in the development environment")
-          return ("https://backend.dev.memeql.com/")
+          return ("https://backend.dev.memeql.konthecat.com/")
+        case "https://dev.memeql.konthecat.com":
+          console.log("Running in the development environment")
+          return ("https://backend.dev.memeql.konthecat.com/")
         default: 
           console.log("Running in the local environment")
           return("http://localhost:4000/")
