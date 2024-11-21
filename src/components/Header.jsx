@@ -19,7 +19,6 @@ const Header = (props) => {
     return (
     <div className="container">
         <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-            <div className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li className="nav-item">
                         <Link className="nav-link" to="/">
@@ -29,7 +28,6 @@ const Header = (props) => {
                     {props.userData ? renderNothing() : renderSignUpLink()}
                 </ul>
                 <LoginPage baseBackendURL = {props.baseBackendURL} loginUser = {props.loginUser} logoutUser = {props.logoutUser} userData = {props.userData}/>
-            </div>
         </nav>
     </div>
   );
